@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const queryParams = new URLSearchParams(window.location.search);
-    const surahNumber = queryParams.get('number');
+    const surahNumber = queryParams.get('number').padStart(3, '0'); // Ensure it is 3 digits long
     const surahUrl = `https://raw.githubusercontent.com/penggguna/QuranJSON/master/surah/${surahNumber}.json`;
 
     fetch(surahUrl)
