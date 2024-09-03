@@ -1,4 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Existing code...
+
+    function saveHistory(surahIndex) {
+        let history = JSON.parse(localStorage.getItem('quran-history')) || [];
+        if (!history.includes(surahIndex)) {
+            history.push(surahIndex);
+            localStorage.setItem('quran-history', JSON.stringify(history));
+        }
+    }
+
+    function saveBookmark(surahIndex) {
+        let bookmarks = JSON.parse(localStorage.getItem('quran-bookmarks')) || [];
+        if (!bookmarks.includes(surahIndex)) {
+            bookmarks.push(surahIndex);
+            localStorage.setItem('quran-bookmarks', JSON.stringify(bookmarks));
+        }
+    }
+
+    // Save history on page load
+    saveHistory(surahIndex);
+
+    // Functionality to handle bookmarks (you may want to add a bookmark button or similar UI component)
+});
+
+document.addEventListener('DOMContentLoaded', function() {
     const params = new URLSearchParams(window.location.search);
     const surahIndex = params.get('surah') || '1'; // Default to Surah 1 if not specified
 
