@@ -1,16 +1,24 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize text size
+    const textSizeKey = 'text-size';
+    let textSize = localStorage.getItem(textSizeKey) || '16px';
+    document.documentElement.style.setProperty('--text-size', textSize);
+
+    // Text size increase button
+    const increaseTextSizeButton = document.getElementById('increase-text-size');
+    increaseTextSizeButton.addEventListener('click', () => {
+        let currentSize = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--text-size'));
+        let newSize = currentSize + 2; // Increase size by 2px
+        document.documentElement.style.setProperty('--text-size', `${newSize}px`);
+        localStorage.setItem(textSizeKey, `${newSize}px`); // Save new size in localStorage
+    });
+
     const queryParams = new URLSearchParams(window.location.search);
     const surahNumber = queryParams.get('number');
     const surahUrl = `https://raw.githubusercontent.com/penggguna/QuranJSON/master/surah/${surahNumber}.json`;
 
-    // Attempt to fetch the data
     fetch(surahUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
             const surahDetailsElement = document.getElementById('surah-details');
 
