@@ -3,6 +3,7 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    transition: all 0.3s ease;
 }
 
 header {
@@ -12,15 +13,48 @@ header {
     text-align: center;
     position: relative;
 }
-.settings-btn {
+
+.settings-btn, .back-btn {
     position: absolute;
-    right: 20px;
-    top: 10px;
     background: none;
     border: none;
     color: white;
-    font-size: 24px;
     cursor: pointer;
+    font-size: 24px;
+}
+
+.settings-btn {
+    right: 20px;
+    top: 10px;
+}
+
+.back-btn {
+    left: 20px;
+    top: 10px;
+}
+
+main {
+    padding: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+}
+
+a {
+    text-decoration: none;
+    color: #004d40;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 .settings-menu {
@@ -61,6 +95,10 @@ header {
     width: auto;
 }
 
+.settings-menu input[type="checkbox"]:checked + span {
+    color: #004d40;
+}
+
 .apply-btn, .reset-btn {
     background-color: #004d40;
     color: white;
@@ -76,54 +114,6 @@ header {
     background-color: #003d34;
 }
 
-#settings-menu {
-    background-color: #ffffff;
-    color: #333;
-}
-.surah-details {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #ffffff;
-    border: 1px solid #004d40;
-    border-radius: 5px;
-}
-
-.surah-title {
-    font-size: 24px;
-    color: #004d40;
-    margin-bottom: 10px;
-}
-
-.surah-info {
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-
-.verse {
-    margin-bottom: 15px;
-}
-
-.verse-text {
-    font-size: 18px;
-    margin: 5px 0;
-}
-
-.translation {
-    color: #00796b;
-    font-style: italic;
-}
-
-.additional-info {
-    margin-top: 20px;
-    background-color: #004d40;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.additional-info h3 {
-    margin: 0;
-}
 .bg-texture1 {
     background: url('textures/texture1.png') repeat;
 }
@@ -138,4 +128,46 @@ body.bg-texture1 {
 
 body.bg-texture2 {
     background: url('https://media.istockphoto.com/id/1284296433/vector/seamless-vector-pattern-in-authentic-arabian-style.jpg?s=612x612&w=0&k=20&c=y_8IS5hhl3jkfaa8zSrRyEOTZ6caKD7THpsWUOyeMs0=') repeat;
+}
+
+#surah-details {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.surah-title {
+    margin: 0;
+    font-size: 24px;
+    color: #004d40;
+}
+
+.verse {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.verse-number {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 2px solid #004d40;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-color: #e0f2f1;
+    color: #004d40;
+    font-weight: bold;
+}
+
+.verse-text {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.translation {
+    font-size: 14px;
+    color: #555;
 }
