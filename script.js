@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
             data.forEach(surah => {
                 const listItem = document.createElement('li');
                 const link = document.createElement('a');
-                link.href = `surah.html?number=${surah.index.padStart(3, '0')}`;
+                link.href = `surah.html?number=${surah.index}`;
                 link.textContent = `${surah.title} (${surah.titleAr})`;
                 listItem.appendChild(link);
                 surahListElement.appendChild(listItem);
