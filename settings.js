@@ -14,16 +14,20 @@ document.addEventListener('DOMContentLoaded', function() {
         const settings = JSON.parse(localStorage.getItem('quran-settings')) || {};
         if (settings.transitions !== undefined) {
             document.getElementById('transitions-checkbox').checked = settings.transitions;
+            document.body.style.transition = settings.transitions ? 'all 0.3s ease' : 'none';
         }
         if (settings.textSize) {
+            document.body.style.fontSize = settings.textSize;
             document.getElementById('text-size-select').value = settings.textSize;
         }
         if (settings.font) {
+            document.body.style.fontFamily = settings.font;
             document.getElementById('font-select').value = settings.font;
         }
         if (settings.bgTexture) {
+            document.body.classList.remove('bg-texture1', 'bg-texture2');
+            document.body.classList.add(settings.bgTexture);
             document.getElementById('bg-texture-select').value = settings.bgTexture;
-            document.body.className = settings.bgTexture;
         }
     }
 
@@ -38,7 +42,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         document.body.style.fontSize = textSize;
         document.body.style.fontFamily = font;
-        document.body.className = bgTexture;
+        document.body.classList.remove('bg-texture1', 'bg-texture2');
+        if (bgTexture !== 'none') {
+            document.body.classList.add(bgTexture);
+        }
 
         const settings = {
             transitions: transitions,
@@ -60,8 +67,5 @@ document.addEventListener('DOMContentLoaded', function() {
     resetButton.addEventListener('click', function() {
         localStorage.removeItem('quran-settings');
         loadSettings();
-        document.body.style.fontSize = '';
-        document.body.style.fontFamily = '';
-        document.body.className = '';
     });
 });
