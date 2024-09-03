@@ -3,8 +3,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const surahNumber = queryParams.get('number');
     const surahUrl = `https://raw.githubusercontent.com/penggguna/QuranJSON/master/surah/${surahNumber}.json`;
 
+    // Attempt to fetch the data
     fetch(surahUrl)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
             const surahDetailsElement = document.getElementById('surah-details');
 
