@@ -62,7 +62,6 @@ header {
 
 .settings-menu select {
     margin-left: 10px;
-    margin-bottom: 10px;
 }
 
 .apply-btn, .reset-btn {
@@ -109,7 +108,7 @@ header {
 }
 
 .verse-text {
-    font-size: 18px; /* Default size, will be adjusted by JS */
+    font-size: 16px; /* This will be overridden by the JS script */
     margin-bottom: 5px;
 }
 
