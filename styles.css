@@ -1,21 +1,22 @@
+/* General styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Amiri', serif; /* Default Arabic Font */
     background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+    color: #333;
     transition: all 0.3s ease;
 }
 
 header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
     background-color: #004d40;
     color: white;
-    padding: 10px 0;
-    text-align: center;
     position: relative;
 }
 
-.settings-btn, .back-btn {
-    position: absolute;
+.back-btn, .settings-btn {
     background: none;
     border: none;
     color: white;
@@ -24,37 +25,13 @@ header {
 }
 
 .settings-btn {
+    position: absolute;
     right: 20px;
-    top: 10px;
 }
 
 .back-btn {
+    position: absolute;
     left: 20px;
-    top: 10px;
-}
-
-main {
-    padding: 20px;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    margin: 10px 0;
-}
-
-a {
-    text-decoration: none;
-    color: #004d40;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-a:hover {
-    text-decoration: underline;
 }
 
 .settings-menu {
@@ -83,20 +60,8 @@ a:hover {
     margin: 10px 0;
 }
 
-.settings-menu select, .settings-menu input {
+.settings-menu select {
     margin-left: 10px;
-}
-
-.settings-menu select, .settings-menu input[type="checkbox"] {
-    vertical-align: middle;
-}
-
-.settings-menu input[type="checkbox"] {
-    width: auto;
-}
-
-.settings-menu input[type="checkbox"]:checked + span {
-    color: #004d40;
 }
 
 .apply-btn, .reset-btn {
@@ -114,38 +79,18 @@ a:hover {
     background-color: #003d34;
 }
 
-.bg-texture1 {
-    background: url('textures/texture1.png') repeat;
-}
-
-.bg-texture2 {
-    background: url('textures/texture2.png') repeat;
-}
-
-body.bg-texture1 {
-    background: url('textures/texture1.png') repeat;
-}
-
-body.bg-texture2 {
-    background: url('https://media.istockphoto.com/id/1284296433/vector/seamless-vector-pattern-in-authentic-arabian-style.jpg?s=612x612&w=0&k=20&c=y_8IS5hhl3jkfaa8zSrRyEOTZ6caKD7THpsWUOyeMs0=') repeat;
-}
-
 #surah-details {
     background-color: white;
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.surah-title {
-    margin: 0;
-    font-size: 24px;
-    color: #004d40;
+    background: url('textures/texture1.png') repeat; /* Default texture */
 }
 
 .verse {
     border-bottom: 1px solid #ddd;
     padding: 10px 0;
+    background: url('textures/texture1.png') repeat; /* Texture for verses */
 }
 
 .verse-number {
@@ -163,7 +108,7 @@ body.bg-texture2 {
 }
 
 .verse-text {
-    font-size: 16px;
+    font-size: 16px; /* This will be overridden by the JS script */
     margin-bottom: 5px;
 }
 
