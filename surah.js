@@ -11,29 +11,34 @@ document.addEventListener('DOMContentLoaded', function() {
             const surahTitle = document.createElement('h2');
             surahTitle.classList.add('surah-title');
             surahTitle.textContent = `${data.name} (${data.name_translations.en})`;
-            surahDetailsElement.appendChild(surahTitle);
+
+            const surahInfo = document.createElement('p');
+            surahInfo.classList.add('surah-info');
+            surahInfo.textContent = `Surah Number: ${data.number_of_surah} | Place: ${data.place} | Type: ${data.type}`;
+
+            const versesDiv = document.createElement('div');
+            versesDiv.classList.add('surah-details');
 
             data.verses.forEach(verse => {
                 const verseElement = document.createElement('div');
                 verseElement.classList.add('verse');
-
-                const verseNumber = document.createElement('span');
-                verseNumber.classList.add('verse-number');
-                verseNumber.textContent = verse.number;
-                verseElement.appendChild(verseNumber);
-
-                const verseText = document.createElement('div');
-                verseText.classList.add('verse-text');
-                verseText.textContent = verse.text;
-                verseElement.appendChild(verseText);
-
-                const translation = document.createElement('div');
-                translation.classList.add('translation');
-                translation.textContent = verse.translation_en;
-                verseElement.appendChild(translation);
-
-                surahDetailsElement.appendChild(verseElement);
+                verseElement.innerHTML = `
+                    <span class="verse-number">${verse.number}</span>
+                    <div class="verse-text">${verse.text}</div>
+                    <div class="translation">${verse.translation_en}</div>
+                `;
+                versesDiv.appendChild(verseElement);
             });
+
+            const additionalInfo = document.createElement('div');
+            additionalInfo.classList.add('additional-info');
+            additionalInfo.innerHTML = `<h3>Additional Information</h3>
+                <p>This Surah is known for its profound meaning and importance in the Quran.</p>`;
+
+            surahDetailsElement.appendChild(surahTitle);
+            surahDetailsElement.appendChild(surahInfo);
+            surahDetailsElement.appendChild(versesDiv);
+            surahDetailsElement.appendChild(additionalInfo);
         })
         .catch(error => console.error('Error fetching Surah details:', error));
 });
