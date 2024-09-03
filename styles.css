@@ -3,7 +3,6 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    transition: all 0.3s ease;
 }
 
 header {
@@ -13,7 +12,6 @@ header {
     text-align: center;
     position: relative;
 }
-
 .settings-btn {
     position: absolute;
     right: 20px;
@@ -82,7 +80,50 @@ header {
     background-color: #ffffff;
     color: #333;
 }
+.surah-details {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #004d40;
+    border-radius: 5px;
+}
 
+.surah-title {
+    font-size: 24px;
+    color: #004d40;
+    margin-bottom: 10px;
+}
+
+.surah-info {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.verse {
+    margin-bottom: 15px;
+}
+
+.verse-text {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.translation {
+    color: #00796b;
+    font-style: italic;
+}
+
+.additional-info {
+    margin-top: 20px;
+    background-color: #004d40;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.additional-info h3 {
+    margin: 0;
+}
 .bg-texture1 {
     background: url('textures/texture1.png') repeat;
 }
