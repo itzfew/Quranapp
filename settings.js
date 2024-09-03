@@ -1,44 +1,50 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     const settingsButton = document.getElementById('settings-button');
     const settingsMenu = document.getElementById('settings-menu');
-    const applyButton = document.getElementById('apply-settings');
-    const resetButton = document.getElementById('reset-settings');
+    const applySettingsButton = document.getElementById('apply-settings');
+    const resetSettingsButton = document.getElementById('reset-settings');
+    const textSizeSelect = document.getElementById('text-size-select');
+    const backgroundSelect = document.getElementById('background-select');
 
-    settingsButton.addEventListener('click', function() {
-        settingsMenu.style.display = settingsMenu.style.display === 'block' ? 'none' : 'block';
+    // Show settings menu
+    settingsButton.addEventListener('click', () => {
+        settingsMenu.style.display = settingsMenu.style.display === 'none' || settingsMenu.style.display === '' ? 'block' : 'none';
     });
 
-    function loadSettings() {
-        const settings = JSON.parse(localStorage.getItem('quran-settings')) || {};
-        if (settings.textSize) {
-            document.querySelector('.verse-text').style.fontSize = settings.textSize;
-            document.getElementById('text-size-select').value = settings.textSize;
-        }
-        if (settings.background) {
-            document.getElementById('surah-details').style.backgroundImage = `url('${settings.background}')`;
-            document.getElementById('background-select').value = settings.background;
-        }
+    // Apply settings
+    applySettingsButton.addEventListener('click', () => {
+        const textSize = textSizeSelect.value;
+        const background = backgroundSelect.value;
+
+        document.body.style.fontSize = textSize;
+        document.getElementById('surah-details').style.backgroundImage = `url(${background})`;
+
+        // Save settings
+        localStorage.setItem('textSize', textSize);
+        localStorage.setItem('background', background);
+    });
+
+    // Reset settings
+    resetSettingsButton.addEventListener('click', () => {
+        localStorage.removeItem('textSize');
+        localStorage.removeItem('background');
+        applyDefaultSettings();
+    });
+
+    // Apply default settings or previously saved settings
+    function applyDefaultSettings() {
+        const defaultTextSize = '18px';
+        const defaultBackground = 'textures/texture1.png';
+
+        const savedTextSize = localStorage.getItem('textSize') || defaultTextSize;
+        const savedBackground = localStorage.getItem('background') || defaultBackground;
+
+        document.body.style.fontSize = savedTextSize;
+        document.getElementById('surah-details').style.backgroundImage = `url(${savedBackground})`;
+
+        textSizeSelect.value = savedTextSize;
+        backgroundSelect.value = savedBackground;
     }
 
-    loadSettings();
-
-    applyButton.addEventListener('click', function() {
-        const textSize = document.getElementById('text-size-select').value;
-        const background = document.getElementById('background-select').value;
-
-        document.querySelector('.verse-text').style.fontSize = textSize;
-        document.getElementById('surah-details').style.backgroundImage = `url('${background}')`;
-
-        const settings = {
-            textSize: textSize,
-            background: background
-        };
-
-        localStorage.setItem('quran-settings', JSON.stringify(settings));
-    });
-
-    resetButton.addEventListener('click', function() {
-        localStorage.removeItem('quran-settings');
-        loadSettings();
-    });
+    applyDefaultSettings();
 });
