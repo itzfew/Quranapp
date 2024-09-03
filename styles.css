@@ -38,3 +38,42 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+.verse-number {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border: 2px solid #004d40;
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 10px;
+    font-weight: bold;
+    color: #004d40;
+}
+
+.surah-details {
+    margin-top: 20px;
+}
+
+.audio-list {
+    margin-top: 20px;
+}
+
+.audio-list a {
+    display: block;
+    margin: 5px 0;
+    color: #004d40;
+}
+
+.tafsir-dropdown {
+    margin-top: 20px;
+}
+
+.tafsir-content {
+    margin-top: 10px;
+    border: 1px solid #004d40;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
