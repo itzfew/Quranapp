@@ -33,7 +33,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         <span class="verse-number">${verse.number}</span>
                         <div class="verse-text arabic-text">${verse.text}</div>
                         <div class="translation">${verse.translation_en}</div>
-                        <button class="share-btn" data-number="${verse.number}" data-text="${verse.text}" data-translation="${verse.translation_en}" data-surah="${data.name}">Share This Verse</button>
+                        <button class="share-btn" data-number="${verse.number}" data-text="${verse.text}" data-translation="${verse.translation_en}" data-surah="${data.name}">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
                     </div>
                 `;
                 versesDiv.appendChild(verseElement);
