@@ -109,7 +109,7 @@ header {
 }
 
 .verse-text {
-    font-size: 16px; /* This will be overridden by the JS script */
+    font-size: 18px; /* Default size, will be adjusted by JS */
     margin-bottom: 5px;
 }
 
