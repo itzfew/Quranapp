@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 verseElement.innerHTML = `
                     <div class="verse-content">
                         <span class="verse-number">${verse.number}</span>
-                        <div class="verse-text">${verse.text}</div>
+                        <div class="verse-text arabic-text">${verse.text}</div>
                         <div class="translation">${verse.translation_en}</div>
                     </div>
                 `;
