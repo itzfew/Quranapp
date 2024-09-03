@@ -14,6 +14,8 @@ header {
 
 main {
     padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 ul {
@@ -50,30 +52,50 @@ a:hover {
     margin-right: 10px;
     font-weight: bold;
     color: #004d40;
+    background-color: #e0f2f1;
 }
 
 .surah-details {
     margin-top: 20px;
-}
-
-.audio-list {
-    margin-top: 20px;
-}
-
-.audio-list a {
-    display: block;
-    margin: 5px 0;
-    color: #004d40;
-}
-
-.tafsir-dropdown {
-    margin-top: 20px;
-}
-
-.tafsir-content {
-    margin-top: 10px;
+    padding: 15px;
+    background-color: #ffffff;
     border: 1px solid #004d40;
+    border-radius: 5px;
+}
+
+.surah-title {
+    font-size: 24px;
+    color: #004d40;
+    margin-bottom: 10px;
+}
+
+.surah-info {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.verse {
+    margin-bottom: 15px;
+}
+
+.verse-text {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.translation {
+    color: #00796b;
+    font-style: italic;
+}
+
+.additional-info {
+    margin-top: 20px;
+    background-color: #004d40;
+    color: white;
     padding: 10px;
     border-radius: 5px;
-    background-color: #ffffff;
+}
+
+.additional-info h3 {
+    margin: 0;
 }
