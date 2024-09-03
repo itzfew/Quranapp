@@ -10,49 +10,60 @@ header {
     color: white;
     padding: 10px 0;
     text-align: center;
+    position: relative;
 }
 
-main {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+.settings-btn {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
+.settings-menu {
+    display: none;
+    position: fixed;
+    right: 20px;
+    top: 60px;
     background-color: white;
-    margin: 10px 0;
+    border: 1px solid #004d40;
     padding: 15px;
-    border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1000;
 }
 
-a {
-    text-decoration: none;
+.settings-menu h2 {
+    margin: 0 0 10px;
+    font-size: 18px;
     color: #004d40;
-    font-weight: bold;
 }
 
-a:hover {
-    text-decoration: underline;
+.settings-menu label {
+    display: block;
+    margin: 10px 0;
 }
 
-.verse-number {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    border: 2px solid #004d40;
-    border-radius: 50%;
-    text-align: center;
+.settings-menu select, .settings-menu input {
+    margin-left: 10px;
+}
+
+.apply-btn, .reset-btn {
+    background-color: #004d40;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
     margin-right: 10px;
-    font-weight: bold;
-    color: #004d40;
-    background-color: #e0f2f1;
+}
+
+.apply-btn:hover, .reset-btn:hover {
+    background-color: #003d34;
 }
 
 .surah-details {
@@ -98,4 +109,12 @@ a:hover {
 
 .additional-info h3 {
     margin: 0;
+}
+
+.bg-texture1 {
+    background: url('textures/texture1.png') repeat;
+}
+
+.bg-texture2 {
+    background: url('textures/texture2.png') repeat;
 }
