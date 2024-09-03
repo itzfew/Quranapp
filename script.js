@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+ document.addEventListener('DOMContentLoaded', function() {
     const queryParams = new URLSearchParams(window.location.search);
     const surahNumber = queryParams.get('number');
     const surahUrl = `https://raw.githubusercontent.com/penggguna/QuranJSON/master/surah/${surahNumber}.json`;
