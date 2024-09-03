@@ -29,9 +29,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 const verseElement = document.createElement('div');
                 verseElement.classList.add('verse');
                 verseElement.innerHTML = `
-                    <span class="verse-number">${verse.number}</span>
-                    <div class="verse-text">${verse.text}</div>
-                    <div class="translation">${verse.translation_en}</div>
+                    <div class="verse-content">
+                        <span class="verse-number">${verse.number}</span>
+                        <div class="verse-text">${verse.text}</div>
+                        <div class="translation">${verse.translation_en}</div>
+                    </div>
                 `;
                 versesDiv.appendChild(verseElement);
             });
