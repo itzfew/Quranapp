@@ -62,6 +62,7 @@ header {
 
 .settings-menu select {
     margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 .apply-btn, .reset-btn {
