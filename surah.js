@@ -7,52 +7,38 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             const surahDetailsElement = document.getElementById('surah-details');
+
             const surahTitle = document.createElement('h2');
+            surahTitle.classList.add('surah-title');
             surahTitle.textContent = `${data.name} (${data.name_translations.en})`;
-            
+
             const surahInfo = document.createElement('p');
+            surahInfo.classList.add('surah-info');
             surahInfo.textContent = `Surah Number: ${data.number_of_surah} | Place: ${data.place} | Type: ${data.type}`;
-            
+
             const versesDiv = document.createElement('div');
             versesDiv.classList.add('surah-details');
 
             data.verses.forEach(verse => {
-                const verseElement = document.createElement('p');
-                verseElement.innerHTML = `<span class="verse-number">${verse.number}</span> ${verse.text} <br> <em>${verse.translation_en}</em>`;
+                const verseElement = document.createElement('div');
+                verseElement.classList.add('verse');
+                verseElement.innerHTML = `
+                    <span class="verse-number">${verse.number}</span>
+                    <div class="verse-text">${verse.text}</div>
+                    <div class="translation">${verse.translation_en}</div>
+                `;
                 versesDiv.appendChild(verseElement);
             });
 
-            const audioList = document.createElement('div');
-            audioList.classList.add('audio-list');
-            data.recitations.forEach(recitation => {
-                const audioLink = document.createElement('a');
-                audioLink.href = recitation.audio_url;
-                audioLink.textContent = `Listen: ${recitation.name}`;
-                audioLink.target = '_blank';
-                audioList.appendChild(audioLink);
-            });
-
-            const tafsirDropdown = document.createElement('div');
-            tafsirDropdown.classList.add('tafsir-dropdown');
-            if (data.tafsir) {
-                Object.keys(data.tafsir).forEach(lang => {
-                    const langDiv = document.createElement('div');
-                    langDiv.classList.add('tafsir-content');
-                    const langName = document.createElement('h3');
-                    langName.textContent = `Tafsir (${lang})`;
-                    const langContent = document.createElement('p');
-                    langContent.textContent = data.tafsir[lang].kemenag.text["1"];
-                    langDiv.appendChild(langName);
-                    langDiv.appendChild(langContent);
-                    tafsirDropdown.appendChild(langDiv);
-                });
-            }
+            const additionalInfo = document.createElement('div');
+            additionalInfo.classList.add('additional-info');
+            additionalInfo.innerHTML = `<h3>Additional Information</h3>
+                <p>This Surah is known for its profound meaning and importance in the Quran.</p>`;
 
             surahDetailsElement.appendChild(surahTitle);
             surahDetailsElement.appendChild(surahInfo);
             surahDetailsElement.appendChild(versesDiv);
-            surahDetailsElement.appendChild(audioList);
-            surahDetailsElement.appendChild(tafsirDropdown);
+            surahDetailsElement.appendChild(additionalInfo);
         })
         .catch(error => console.error('Error fetching Surah details:', error));
 });
