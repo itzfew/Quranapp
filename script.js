@@ -8,8 +8,13 @@ document.addEventListener('DOMContentLoaded', function() {
             data.forEach(surah => {
                 const listItem = document.createElement('li');
                 const link = document.createElement('a');
-                link.href = `surah.html?number=${surah.index}`;
+                
+                // Convert surah.index to integer to remove leading zeros
+                const surahNumber = parseInt(surah.index, 10);
+                
+                link.href = `surah.html?number=${surahNumber}`;
                 link.textContent = `${surah.title} (${surah.titleAr})`;
+                
                 listItem.appendChild(link);
                 surahListElement.appendChild(listItem);
             });
