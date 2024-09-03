@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <span class="verse-number">${verse.number}</span>
                         <div class="verse-text arabic-text">${verse.text}</div>
                         <div class="translation">${verse.translation_en}</div>
+                        <button class="share-btn" data-number="${verse.number}" data-text="${verse.text}" data-translation="${verse.translation_en}" data-surah="${data.name}">Share This Verse</button>
                     </div>
                 `;
                 versesDiv.appendChild(verseElement);
@@ -42,6 +43,30 @@ document.addEventListener('DOMContentLoaded', function() {
             surahDetailsElement.appendChild(surahInfo);
             surahDetailsElement.appendChild(versesDiv);
         
+            // Add event listeners for share buttons
+            document.querySelectorAll('.share-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const number = this.getAttribute('data-number');
+                    const text = this.getAttribute('data-text');
+                    const translation = this.getAttribute('data-translation');
+                    const surah = this.getAttribute('data-surah');
+
+                    const shareText = `${surah} - Verse ${number}\n\nArabic: ${text}\n\nTranslation: ${translation}\n\nShare this verse: ${window.location.href}`;
+                    
+                    if (navigator.share) {
+                        navigator.share({
+                            title: `Share Verse ${number}`,
+                            text: shareText,
+                            url: window.location.href
+                        })
+                        .then(() => console.log('Successful share'))
+                        .catch((error) => console.log('Share failed', error));
+                    } else {
+                        // Fallback for browsers that do not support the Web Share API
+                        prompt('Copy to clipboard:', shareText);
+                    }
+                });
+            });
         })
         .catch(error => console.error('Error fetching Surah details:', error));
 });
