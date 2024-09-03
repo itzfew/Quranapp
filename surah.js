@@ -30,15 +30,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 versesDiv.appendChild(verseElement);
             });
 
-            const additionalInfo = document.createElement('div');
-            additionalInfo.classList.add('additional-info');
-            additionalInfo.innerHTML = `<h3>Additional Information</h3>
-                <p>This Surah is known for its profound meaning and importance in the Quran.</p>`;
-
-            surahDetailsElement.appendChild(surahTitle);
+           surahDetailsElement.appendChild(surahTitle);
             surahDetailsElement.appendChild(surahInfo);
             surahDetailsElement.appendChild(versesDiv);
-            surahDetailsElement.appendChild(additionalInfo);
-        })
+             })
         .catch(error => console.error('Error fetching Surah details:', error));
 });
