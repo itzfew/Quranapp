@@ -4,12 +4,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const applyButton = document.getElementById('apply-settings');
     const resetButton = document.getElementById('reset-settings');
 
-    // Show or hide settings menu
     settingsButton.addEventListener('click', function() {
         settingsMenu.style.display = settingsMenu.style.display === 'block' ? 'none' : 'block';
     });
 
-    // Load settings from localStorage
     function loadSettings() {
         const settings = JSON.parse(localStorage.getItem('quran-settings')) || {};
         if (settings.transitions !== undefined) {
@@ -33,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     loadSettings();
 
-    // Apply settings and save to localStorage
     applyButton.addEventListener('click', function() {
         const transitions = document.getElementById('transitions-checkbox').checked;
         const textSize = document.getElementById('text-size-select').value;
@@ -63,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Reset settings
     resetButton.addEventListener('click', function() {
         localStorage.removeItem('quran-settings');
         loadSettings();
