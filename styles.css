@@ -115,6 +115,20 @@ a:hover {
     font-style: italic;
 }
 
+.share-btn {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #004d40;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.share-btn:hover {
+    background-color: #00332b;
+}
+
 .additional-info {
     margin-top: 20px;
     background-color: #004d40;
