@@ -3,6 +3,7 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    transition: all 0.3s ease;
 }
 
 header {
@@ -35,6 +36,8 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     z-index: 1000;
+    max-width: 300px;
+    width: 100%;
 }
 
 .settings-menu h2 {
@@ -52,6 +55,14 @@ header {
     margin-left: 10px;
 }
 
+.settings-menu select, .settings-menu input[type="checkbox"] {
+    vertical-align: middle;
+}
+
+.settings-menu input[type="checkbox"] {
+    width: auto;
+}
+
 .apply-btn, .reset-btn {
     background-color: #004d40;
     color: white;
@@ -59,56 +70,17 @@ header {
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    margin-right: 10px;
+    margin-top: 10px;
+    font-size: 14px;
 }
 
 .apply-btn:hover, .reset-btn:hover {
     background-color: #003d34;
 }
 
-.surah-details {
-    margin-top: 20px;
-    padding: 15px;
+#settings-menu {
     background-color: #ffffff;
-    border: 1px solid #004d40;
-    border-radius: 5px;
-}
-
-.surah-title {
-    font-size: 24px;
-    color: #004d40;
-    margin-bottom: 10px;
-}
-
-.surah-info {
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-
-.verse {
-    margin-bottom: 15px;
-}
-
-.verse-text {
-    font-size: 18px;
-    margin: 5px 0;
-}
-
-.translation {
-    color: #00796b;
-    font-style: italic;
-}
-
-.additional-info {
-    margin-top: 20px;
-    background-color: #004d40;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.additional-info h3 {
-    margin: 0;
+    color: #333;
 }
 
 .bg-texture1 {
@@ -117,4 +89,12 @@ header {
 
 .bg-texture2 {
     background: url('textures/texture2.png') repeat;
+}
+
+body.bg-texture1 {
+    background: url('textures/texture1.png') repeat;
+}
+
+body.bg-texture2 {
+    background: url('https://media.istockphoto.com/id/1284296433/vector/seamless-vector-pattern-in-authentic-arabian-style.jpg?s=612x612&w=0&k=20&c=y_8IS5hhl3jkfaa8zSrRyEOTZ6caKD7THpsWUOyeMs0=') repeat;
 }
