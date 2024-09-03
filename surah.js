@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="translation">${verse.translation_en}</div>
                 </div>
             `).join('')}
+
         `;
         saveHistory(surahIndex);
     }
