@@ -1,96 +1,44 @@
-/* General styles */
 body {
-    font-family: 'Amiri', serif; /* Default Arabic Font */
+    font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    color: #333;
-    transition: all 0.3s ease;
+    margin: 0;
+    padding: 0;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
     background-color: #004d40;
     color: white;
-    position: relative;
-}
-
-.back-btn, .settings-btn {
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 24px;
-}
-
-.settings-btn {
-    position: absolute;
-    right: 20px;
-}
-
-.back-btn {
-    position: absolute;
-    left: 20px;
-}
-
-.settings-menu {
-    display: none;
-    position: fixed;
-    right: 20px;
-    top: 60px;
-    background-color: white;
-    border: 1px solid #004d40;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    z-index: 1000;
-    max-width: 300px;
-    width: 100%;
-}
-
-.settings-menu h2 {
-    margin: 0 0 10px;
-    font-size: 18px;
-    color: #004d40;
-}
-
-.settings-menu label {
-    display: block;
-    margin: 10px 0;
-}
-
-.settings-menu select {
-    margin-left: 10px;
-}
-
-.apply-btn, .reset-btn {
-    background-color: #004d40;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-size: 14px;
-}
-
-.apply-btn:hover, .reset-btn:hover {
-    background-color: #003d34;
-}
-
-#surah-details {
-    background-color: white;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    background: url('textures/texture1.png') repeat; /* Default texture */
-}
-
-.verse {
-    border-bottom: 1px solid #ddd;
     padding: 10px 0;
-    background: url('textures/texture1.png') repeat; /* Texture for verses */
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: white;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+a {
+    text-decoration: none;
+    color: #004d40;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 .verse-number {
@@ -98,21 +46,56 @@ header {
     width: 30px;
     height: 30px;
     line-height: 30px;
-    text-align: center;
     border: 2px solid #004d40;
     border-radius: 50%;
+    text-align: center;
     margin-right: 10px;
-    background-color: #e0f2f1;
-    color: #004d40;
     font-weight: bold;
+    color: #004d40;
+    background-color: #e0f2f1;
+}
+
+.surah-details {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #004d40;
+    border-radius: 5px;
+}
+
+.surah-title {
+    font-size: 24px;
+    color: #004d40;
+    margin-bottom: 10px;
+}
+
+.surah-info {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.verse {
+    margin-bottom: 15px;
 }
 
 .verse-text {
-    font-size: 16px; /* This will be overridden by the JS script */
-    margin-bottom: 5px;
+    font-size: 18px;
+    margin: 5px 0;
 }
 
 .translation {
-    font-size: 14px;
-    color: #555;
+    color: #00796b;
+    font-style: italic;
+}
+
+.additional-info {
+    margin-top: 20px;
+    background-color: #004d40;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.additional-info h3 {
+    margin: 0;
 }
