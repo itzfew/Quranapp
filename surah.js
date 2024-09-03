@@ -1,39 +1,37 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const queryParams = new URLSearchParams(window.location.search);
-    const surahNumber = queryParams.get('number');
-    const surahUrl = `https://raw.githubusercontent.com/penggguna/QuranJSON/master/surah/${surahNumber}.json`;
+    const params = new URLSearchParams(window.location.search);
+    const surahIndex = params.get('surah') || '1'; // Default to Surah 1 if not specified
 
-    fetch(surahUrl)
+    fetch(`https://raw.githubusercontent.com/itzfew/Quran-Online/main/source/surah.json`)
         .then(response => response.json())
         .then(data => {
-            const surahDetailsElement = document.getElementById('surah-details');
+            const surah = data.find(surah => surah.index === surahIndex);
+            if (surah) {
+                displaySurahDetails(surah);
+            }
+        });
 
-            const surahTitle = document.createElement('h2');
-            surahTitle.classList.add('surah-title');
-            surahTitle.textContent = `${data.name} (${data.name_translations.en})`;
-            surahDetailsElement.appendChild(surahTitle);
-
-            data.verses.forEach(verse => {
-                const verseElement = document.createElement('div');
-                verseElement.classList.add('verse');
-
-                const verseNumber = document.createElement('span');
-                verseNumber.classList.add('verse-number');
-                verseNumber.textContent = verse.number;
-                verseElement.appendChild(verseNumber);
-
-                const verseText = document.createElement('div');
-                verseText.classList.add('verse-text');
-                verseText.textContent = verse.text;
-                verseElement.appendChild(verseText);
-
-                const translation = document.createElement('div');
-                translation.classList.add('translation');
-                translation.textContent = verse.translation_en;
-                verseElement.appendChild(translation);
-
-                surahDetailsElement.appendChild(verseElement);
-            });
-        })
-        .catch(error => console.error('Error fetching Surah details:', error));
+    function displaySurahDetails(surah) {
+        const surahDetails = document.getElementById('surah-details');
+        surahDetails.innerHTML = `
+            <h2>${surah.title} (${surah.titleAr})</h2>
+            <p><strong>Place:</strong> ${surah.place}</p>
+            <p><strong>Type:</strong> ${surah.type}</p>
+            <p><strong>Number of Verses:</strong> ${surah.count}</p>
+            <p><strong>Pages:</strong> ${surah.pages}</p>
+            ${surah.juz.map(juz => `
+                <div>
+                    <h3>Juz ${juz.index}</h3>
+                    <p><strong>Verses:</strong> ${juz.verse.start} - ${juz.verse.end}</p>
+                </div>
+            `).join('')}
+            ${surah.verses.map(verse => `
+                <div class="verse">
+                    <div class="verse-number">${verse.number}</div>
+                    <div class="verse-text">${verse.text}</div>
+                    <div class="translation">${verse.translation_en}</div>
+                </div>
+            `).join('')}
+        `;
+    }
 });
