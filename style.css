@@ -86,7 +86,7 @@ main {
 }
 
 .arabic-text {
-    font-size: 32px; /* Increased font size for Arabic text */
+    font-size: 32px;
     font-family: 'Noto Naskh Arabic', serif;
 }
 
@@ -110,25 +110,47 @@ main {
     transition: background-color 0.3s;
 }
 
-.share-btn i, .copy-btn i {
-    margin-right: 5px;
-}
-
 .share-btn:hover, .copy-btn:hover {
     background-color: #004d40;
 }
 
-.additional-info {
-    margin-top: 20px;
-    background-color: #00796b;
-    color: white;
-    padding: 15px;
-    border-radius: 5px;
+.navigation {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
 }
 
-.additional-info h3 {
-    margin: 0;
-    font-size: 20px;
+.nav-btn {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.nav-btn:disabled {
+    background-color: #cfd8dc;
+    cursor: not-allowed;
+}
+
+.nav-btn:hover:not(:disabled) {
+    background-color: #004d40;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #00796b;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    text-decoration: underline;
 }
 
 footer {
