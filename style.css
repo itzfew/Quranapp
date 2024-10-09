@@ -1,5 +1,5 @@
 body {
-    font-family: 'Noto Naskh Arabic', Arial, sans-serif; /* Added a more suitable font for Arabic text */
+    font-family: 'Noto Naskh Arabic', Arial, sans-serif;
     background-color: #e8f5e9;
     margin: 0;
     padding: 0;
@@ -56,6 +56,11 @@ main {
     border-radius: 5px;
     padding: 15px;
     position: relative;
+    transition: background-color 0.3s;
+}
+
+.verse-content:hover {
+    background-color: #e0f7fa;
 }
 
 .verse-number {
@@ -82,7 +87,7 @@ main {
 
 .arabic-text {
     font-size: 32px; /* Increased font size for Arabic text */
-    font-family: 'Noto Naskh Arabic', serif; /* Using a specific font for Arabic */
+    font-family: 'Noto Naskh Arabic', serif;
 }
 
 .translation {
@@ -91,24 +96,25 @@ main {
     font-style: italic;
 }
 
-.share-btn {
+.share-btn, .copy-btn {
     background-color: #00796b;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     padding: 10px 15px;
-    display: flex;
+    margin-right: 5px;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     transition: background-color 0.3s;
 }
 
-.share-btn i {
+.share-btn i, .copy-btn i {
     margin-right: 5px;
 }
 
-.share-btn:hover {
+.share-btn:hover, .copy-btn:hover {
     background-color: #004d40;
 }
 
@@ -125,19 +131,10 @@ main {
     font-size: 20px;
 }
 
-a {
-    text-decoration: none;
-    color: #00796b;
-    font-weight: bold;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
 footer {
     text-align: center;
     margin-top: 40px;
     font-size: 14px;
     color: #777;
+    padding: 20px 0;
 }
