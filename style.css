@@ -1,0 +1,143 @@
+body {
+    font-family: 'Noto Naskh Arabic', Arial, sans-serif; /* Added a more suitable font for Arabic text */
+    background-color: #e8f5e9;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+header {
+    background-color: #00796b;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 36px;
+    margin: 0;
+}
+
+main {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#surah-details {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.surah-title {
+    font-size: 28px;
+    color: #004d40;
+    margin-bottom: 15px;
+}
+
+.surah-info {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.verse {
+    margin-bottom: 20px;
+}
+
+.verse-content {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    position: relative;
+}
+
+.verse-number {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border: 2px solid #00796b;
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 10px;
+    font-weight: bold;
+    color: #00796b;
+    background-color: #e0f2f1;
+}
+
+.verse-text {
+    font-size: 24px;
+    margin: 10px 0;
+    direction: rtl;
+    text-align: right;
+    color: #333;
+}
+
+.arabic-text {
+    font-size: 32px; /* Increased font size for Arabic text */
+    font-family: 'Noto Naskh Arabic', serif; /* Using a specific font for Arabic */
+}
+
+.translation {
+    font-size: 20px;
+    color: #00796b;
+    font-style: italic;
+}
+
+.share-btn {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.share-btn i {
+    margin-right: 5px;
+}
+
+.share-btn:hover {
+    background-color: #004d40;
+}
+
+.additional-info {
+    margin-top: 20px;
+    background-color: #00796b;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.additional-info h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #00796b;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #777;
+}
