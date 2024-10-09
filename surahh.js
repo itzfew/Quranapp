@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const queryParams = new URLSearchParams(window.location.search);
-    const surahNumber = queryParams.get('number');
+    const surahNumber = parseInt(queryParams.get('number'));
     const surahUrl = `https://raw.githubusercontent.com/itzfew/Quranapp/main/surah/${surahNumber}.json`;
 
     fetch(surahUrl)
@@ -47,6 +47,24 @@ document.addEventListener('DOMContentLoaded', function() {
             surahDetailsElement.appendChild(surahInfo);
             surahDetailsElement.appendChild(versesDiv);
         
+            // Navigation buttons
+            const prevButton = document.getElementById('prev-surah');
+            const nextButton = document.getElementById('next-surah');
+
+            if (surahNumber > 1) {
+                prevButton.disabled = false;
+                prevButton.addEventListener('click', () => {
+                    window.location.href = `surah.html?number=${surahNumber - 1}`;
+                });
+            }
+
+            if (surahNumber < 114) {
+                nextButton.disabled = false;
+                nextButton.addEventListener('click', () => {
+                    window.location.href = `surah.html?number=${surahNumber + 1}`;
+                });
+            }
+
             // Add event listeners for share buttons
             document.querySelectorAll('.share-btn').forEach(button => {
                 button.addEventListener('click', function() {
@@ -66,7 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         .then(() => console.log('Successful share'))
                         .catch(() => copyToClipboard(shareText));
                     } else {
-                        // Fallback for browsers that do not support the Web Share API
                         copyToClipboard(shareText);
                     }
                 });
